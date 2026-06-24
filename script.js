@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     // 3. Typing Text Animation (Hero Section)
     // ==========================================
+    const dynamicText = document.getElementById('dynamicText');
     const words = [
         'مروج هوش مصنوعی در بازاریابی',
         'متخصص هوش مصنوعی مولد',
