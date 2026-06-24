@@ -99,6 +99,19 @@ ul {
     list-style: none;
 }
 
+/* FontAwesome RTL adjustments for list items */
+.fa-ul {
+    margin-right: var(--fa-li-margin, 2.5em);
+    margin-left: 0;
+    padding-right: 0;
+}
+
+.fa-ul .fa-li {
+    right: calc(-1 * var(--fa-li-width, 2em));
+    left: auto;
+    text-align: right;
+}
+
 /* Scrollbar Styles */
 ::-webkit-scrollbar {
     width: 8px;
@@ -1617,7 +1630,7 @@ ul {
 @media (max-width: 1024px) {
     .hero-container {
         grid-template-columns: 1fr;
-        gap: 50px;
+        gap: 40px;
         text-align: center;
     }
     
@@ -1647,6 +1660,11 @@ ul {
         grid-template-columns: repeat(2, 1fr);
     }
     
+    /* Balance the 3rd panel on 2-column tablet layout */
+    .activities-grid .activity-panel:nth-child(3) {
+        grid-column: span 2;
+    }
+    
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -1663,6 +1681,11 @@ ul {
         font-size: 1.8rem;
     }
     
+    /* Reduce motion transform slightly for better mobile rendering performance */
+    .fade-in-section {
+        transform: translateY(15px);
+    }
+    
     /* Header menu mobile */
     .mobile-nav-toggle {
         display: flex;
@@ -1672,13 +1695,13 @@ ul {
         position: fixed;
         top: 0;
         left: -100%;
-        width: 70%;
+        width: 75%;
         height: 100vh;
         background-color: var(--bg-depth);
         border-right: 1px solid rgba(6, 68, 188, 0.15);
         z-index: 999;
         transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        padding: 100px 40px 40px;
+        padding: 100px 30px 40px;
     }
     
     .nav-menu.open {
@@ -1771,5 +1794,93 @@ ul {
     
     .skills-box, .certs-box {
         padding: 25px;
+    }
+}
+
+/* Small Mobile Screen Adjustments */
+@media (max-width: 576px) {
+    /* Hide the consult button in header on very small screens to prevent overlap */
+    .header-actions .btn {
+        display: none;
+    }
+    
+    .visual-container {
+        max-width: 280px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.25rem;
+    }
+    
+    .about-img-wrapper {
+        max-width: 260px;
+    }
+    
+    /* Stack timeline/course tab buttons */
+    .tab-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    
+    .tab-btn {
+        justify-content: center;
+        width: 100%;
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    
+    /* Compact feed filters */
+    .feed-filters {
+        gap: 8px;
+    }
+    
+    .filter-btn {
+        padding: 6px 14px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Extra Small Screen adjustments to prevent horizontal overflow */
+@media (max-width: 480px) {
+    .about-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .teaching-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .feed-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .feed-card {
+        padding: 20px;
+    }
+    
+    /* Center and stack direct contact cards */
+    .contact-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 15px;
+        gap: 12px;
+    }
+    
+    .contact-card-icon {
+        margin-left: 0;
+        margin-bottom: 5px;
+    }
+    
+    .copy-btn {
+        margin-top: 5px;
+        align-self: center;
     }
 }

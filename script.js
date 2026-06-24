@@ -20,6 +20,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 navMenu.classList.remove('open');
             });
         });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (navMenu.classList.contains('open') && !navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+                mobileToggle.classList.remove('open');
+                navMenu.classList.remove('open');
+            }
+        });
     }
 
     // ==========================================
@@ -218,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.15
+        threshold: 0.05
     };
 
     const sectionObserver = new IntersectionObserver((entries, observer) => {
